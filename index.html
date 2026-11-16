@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prince Jezreel Galang | CV</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
+    header { padding: 12px 20px; background: #222; color: #fff;
+             display: flex; justify-content: space-between; align-items: center; }
+    a.btn { background: #e91e63; color: #fff; padding: 8px 14px;
+            border-radius: 6px; text-decoration: none; }
+    /* The PDF viewer fills the rest of the screen */
+    iframe { width: 100%; height: calc(100vh - 56px); border: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <span>Prince Jezreel Galang, CV</span>
+    <a class="btn" href="cv.pdf" download>Download PDF</a>
+  </header>
+  <!-- iframe = a window inside the page; src points to the PDF file -->
+  <iframe src="cv.pdf"></iframe>
+</body>
+</html>
