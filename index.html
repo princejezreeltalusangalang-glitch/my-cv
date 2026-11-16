@@ -5,21 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prince Jezreel Galang | CV</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
-    header { padding: 12px 20px; background: #222; color: #fff;
-             display: flex; justify-content: space-between; align-items: center; }
-    a.btn { background: #e91e63; color: #fff; padding: 8px 14px;
-            border-radius: 6px; text-decoration: none; }
-    /* The PDF viewer fills the rest of the screen */
-    iframe { width: 100%; height: calc(100vh - 56px); border: 0; }
+    /* Remove the browser's default gap around the page so the PDF touches every edge */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;      /* no page scrollbar; the PDF viewer scrolls itself */
+      background: #111;
+    }
+
+    /* The PDF viewer takes the full window */
+    object {
+      display: block;
+      width: 100%;
+      height: 100vh;         /* 100vh = 100% of the visible window height */
+    }
+
+    /* Only seen if the browser can't preview PDFs (some phones) */
+    .fallback {
+      padding: 24px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .fallback a { color: #e91e63; }
   </style>
 </head>
 <body>
-  <header>
-    <span>Prince Jezreel Galang, CV</span>
-    <a class="btn" href="cv.pdf" download>Download PDF</a>
-  </header>
-  <!-- iframe = a window inside the page; src points to the PDF file -->
-  <iframe src="cv.pdf"></iframe>
+  <!-- <object> tries to show the PDF. If it can't, the text inside is shown instead. -->
+  <object data="/cv.pdf" type="application/pdf">
+    <p class="fallback">
+      Your browser can't preview the PDF here.
+      <a href="/cv.pdf" download>Download the CV</a>.
+    </p>
+  </object>
 </body>
 </html>
